@@ -1,6 +1,7 @@
+;; learntris implementation in nasm-flavored assembly
+
+%include 'freebsdx64.asm'
+
 global _start
 _start:
-	;; call exit()
-	mov rax, 1
-	mov rdi, 0
-	syscall
+	exit
