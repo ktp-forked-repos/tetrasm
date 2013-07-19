@@ -2,6 +2,13 @@
 
 %include 'freebsdx64.asm'
 
-global _start
+section .bss
+iobuf:	 resb	64
+
+section .text
+  global _start
+
 _start:
-	exit
+  sys.read  STDIN, iobuf, 64
+  sys.write STDOUT, iobuf, 64
+  sys.exit
